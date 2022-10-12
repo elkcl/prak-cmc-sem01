@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.14)
 project(prak-cmc-sem01)
 
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-O2 -lm -Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self -Wswitch-default -Wfloat-equal -Wpointer-arith -Wtype-limits -Wempty-body -Wno-logical-op -Wstrict-prototypes -Wold-style-declaration -Wold-style-definition -Wmissing-parameter-type -Wmissing-field-initializers -Wnested-externs -Wno-pointer-sign -std=gnu99")
+set(CMAKE_C_FLAGS "-Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self -Wswitch-default -Wfloat-equal -Wpointer-arith -Wtype-limits -Wempty-body -Wno-logical-op -Wstrict-prototypes -Wold-style-declaration -Wold-style-definition -Wmissing-parameter-type -Wmissing-field-initializers -Wnested-externs -Wno-pointer-sign -std=gnu99")
+link_libraries(m)
 
 
 add_executable(01-01 contest01-cycles/01-01.c)
@@ -34,3 +35,7 @@ add_executable(02-08 contest02-arrays/02-08.c)
 add_executable(02-10 contest02-arrays/02-10.c)
 add_executable(02-11 contest02-arrays/02-11.c)
 add_executable(02-14 contest02-arrays/02-14.c)
+add_executable(02-02 contest02-arrays/02-02.c)
+add_executable(02-03 contest02-arrays/02-03.c)
+add_executable(02-05 contest02-arrays/02-05.c)
+add_executable(02-07 contest02-arrays/02-07.c)
