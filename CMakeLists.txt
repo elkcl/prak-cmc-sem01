@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(prak-cmc-sem01)
 
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self -Wswitch-default -Wfloat-equal -Wpointer-arith -Wtype-limits -Wempty-body -Wno-logical-op -Wstrict-prototypes -Wold-style-declaration -Wold-style-definition -Wmissing-parameter-type -Wmissing-field-initializers -Wnested-externs -Wno-pointer-sign -std=gnu99 -DONPC -Wshift-overflow=2 -fsanitize=address -fsanitize=undefined")
+set(CMAKE_C_FLAGS "-Wall -Werror -Wformat-security -Wignored-qualifiers -Winit-self -Wswitch-default -Wfloat-equal -Wpointer-arith -Wtype-limits -Wempty-body -Wno-logical-op -Wstrict-prototypes -Wold-style-declaration -Wold-style-definition -Wmissing-parameter-type -Wmissing-field-initializers -Wnested-externs -Wno-pointer-sign -std=gnu99 -DONPC -Wshift-overflow=2 -fsanitize=address -fsanitize=undefined -Wmaybe-uninitialized")
 link_libraries(m)
 
 
@@ -50,3 +50,6 @@ add_executable(02-09 contest02-arrays/02-09.c)
 add_executable(02-12 contest02-arrays/02-12.c)
 add_executable(02-13 contest02-arrays/02-13.c)
 add_executable(02-15 contest02-arrays/02-15.c)
+add_executable(02-16 contest02-arrays/02-16.c)
+add_executable(03-02 contest03-functions/03-02.c)
+add_executable(03-04 contest03-functions/03-04.c)
