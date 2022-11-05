@@ -27,7 +27,7 @@ void z_func(int n, int off) {
 }
 
 int main(void) {
-    srand(42069);
+    srand(69420);
     fgets(s, MAXN, stdin);
     int n = strlen(s) - 1;
     memcpy(s + n, s, n * sizeof(char));
