@@ -1,0 +1,21 @@
+typedef struct {
+    int size, capacity;
+    int *mem;
+} vector;
+
+vector init_vector(int n) {
+    vector v;
+    v.size = n;
+    v.capacity = n * 2;
+    v.mem = malloc(v.capacity * sizeof(int));
+    return v;
+}
+
+void append(vector *v, int c) {
+    if (v->size == v->capacity) {
+        v->capacity *= 2;
+        v->mem = realloc(v->mem, v->capacity);
+    }
+    v->mem[v->size] = c;
+    ++v->size;
+}
