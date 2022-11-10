@@ -25,7 +25,7 @@ void mat_mul(ll p, int n, int m, int l, const ll a[n][m], const ll b[m][l], ll c
 
 void mat_pow(int p, int s, int n, const ll a[n][n], ll b[n][n], ll c[n][n]) {
     if (s == 1) {
-        memcpy(c, a, sizeof(a[n][n]));
+        memcpy(c, a, sizeof(ll[n][n]));
         return;
     }
     if (s % 2 == 0) {
@@ -54,7 +54,7 @@ int main(void) {
     for (int i = 1; i < k; ++i)
         a[i - 1][i] = 1;
     if (n <= k) {
-        printf("%Ld\n", f[n - 1][0]);
+        printf("%Ld\n", f[n - 1][0] % p);
     } else {
         mat_pow(p, n - k, k, a, b, c);
         mat_mul(p, k, k, 1, c, f, res);
