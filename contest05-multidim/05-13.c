@@ -26,7 +26,7 @@ heap heap_init(int sz) {
     heap h;
     h.size = 0;
     h.capacity = sz;
-    h.mem = calloc(sz, sizeof(int));
+    h.mem = calloc(sz, sizeof(*h.mem));
     return h;
 }
 
@@ -83,7 +83,43 @@ int main(void) {
     scanf("%d", &x1);
     scanf("%d", &y1);
 
-    ll (*a)[m] = calloc(n, sizeof(*a));
+    int (*a)[m] = calloc(n, sizeof(*a));
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            scanf("%d", &a[i][j]);
+    ll (*dist)[m] = calloc(n, sizeof(*dist));
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            dist[i][j] = INF;
+    dist[x0][y0] = 0;
+    heap h = heap_init(n * (m - 1) + m * (n - 1) + 1);
+    heap_push(&h, (vertex){x0, y0, 0});
+    while (h.size != 0) {
+        vertex curr = heap_pop(&h);
+        if (curr.dist > dist[curr.x][curr.y])
+            continue;
+        for (int dx = -1; dx < 2; ++dx) {
+            if (curr.x + dx < 0)
+                continue;
+            if (curr.x + dx >= n)
+                continue;
+            for (int dy = -1; dy < 2; ++dy) {
+                if (abs(dx) + abs(dy) != 1)
+                    continue;
+                if (curr.y + dy < 0)
+                    continue;
+                if (curr.y + dy >= m)
+                    continue;
+                if (dist[curr.x + dx][curr.y + dy] > dist[curr.x][curr.y] + llabs(a[curr.x + dx][curr.y + dy] - a[curr.x][curr.y])) {
+                    dist[curr.x + dx][curr.y + dy] = dist[curr.x][curr.y] + llabs(a[curr.x + dx][curr.y + dy] - a[curr.x][curr.y]);
+                    heap_push(&h, (vertex){curr.x + dx, curr.y + dy, dist[curr.x + dx][curr.y + dy]});
+                }
+            }
+        }
+    }
+    printf("%Ld\n", dist[x1][y1]);
 
+    heap_free(&h);
+    free(dist);
     free(a);
 }
