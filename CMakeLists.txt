@@ -77,3 +77,5 @@ add_executable(05-13 contest05-multidim/05-13.c)
 add_executable(sizeof_test stuff/sizeof_test.c)
 
 add_executable(05-16 contest05-multidim/05-16.c)
+add_executable(06-05 contest06-files/06-05.c)
+add_executable(06-09 contest06-files/06-09.c)
