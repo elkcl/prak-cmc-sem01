@@ -21,6 +21,7 @@ int main(void) {
     int (*b)[m] = calloc(n, sizeof(*b));
     printf("%lu\n", sizeof(*b));
     ll (*c)[m][k] = calloc(n, sizeof(*c));
+    printf("длина");
     free(a);
     free(b);
     free(c);
